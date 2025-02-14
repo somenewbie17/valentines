@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffccd5;
+        }
+        .container {
+            position: relative;
+            margin-top: 100px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #d63384;
+        }
+        .buttons {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesBtn {
+            background-color: #ff69b4;
+            color: white;
+        }
+        #noBtn {
+            background-color: #ff4d6d;
+            color: white;
+            position: absolute;
+        }
+        .hidden {
+            display: none;
+        }
+        .heart {
+            font-size: 50px;
+            color: #d63384;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my Valentine? 💖</h1>
+        <div class="buttons">
+            <button id="yesBtn">Yes 💕</button>
+            <button id="noBtn">No 😢</button>
+        </div>
+        <div id="resultContainer" class="hidden">
+            <h2>Yay! I love you! 💖🥰</h2>
+            <img src="https://media.giphy.com/media/3ohs4BSacFKI7A717y/giphy.gif" alt="Cute GIF">
+            <div class="heart">❤️</div>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("noBtn");
+        const yesBtn = document.getElementById("yesBtn");
+        const resultContainer = document.getElementById("resultContainer");
+        const container = document.querySelector(".container");
+
+        noBtn.addEventListener("mouseover", () => {
+            const newX = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
+            const newY = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
+            noBtn.style.left = `${newX}px`;
+            noBtn.style.top = `${newY}px`;
+        });
+
+        yesBtn.addEventListener("click", () => {
+            resultContainer.classList.remove("hidden");
+        });
+    </script>
+</body>
+</html>
